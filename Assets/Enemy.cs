@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-
+    Animator animator;
     public float Health {
         set {
             health = value;
@@ -21,16 +21,14 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        animator = GetComponent<Animator>();
     }
 
     public void Defeated() {
+        animator.SetTrigger("Defeated");
+    }
+
+    public void RemoveEnemy() {
         Destroy(gameObject);
     }
 }
